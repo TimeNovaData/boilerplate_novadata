@@ -1,0 +1,2 @@
+*.sqlite3 # Não manda os bancos
+*pyc # Não manda os arquivos cache do Python
