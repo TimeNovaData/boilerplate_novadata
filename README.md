@@ -1,4 +1,4 @@
-# Modelo heroku
+# Projeto de modelo para o Heroku
 ## Intuito e modo de usar
 Esse é um projeto de modelo, criado para facilitar a configuração para o Heroku que sempre fazemos.
 
