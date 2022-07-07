@@ -2,7 +2,9 @@
 ## Intuito e modo de usar
 Esse é um projeto de modelo, criado para facilitar a configuração para o Heroku que sempre fazemos.
 
-Para criar um projeto com toda a configuração necessária para o Heroku basta rodar o seguinte comando:
+Para criar um projeto com toda a configuração necessária para o Heroku você precisa criar uma virtualenv e instalar o django nela,
+
+depois basta rodar o seguinte comando:
 
 ```shell
 django-admin startproject --template https://github.com/TimeNovaData/heroku_modelo/raw/master/project_name.zip --name=Procfile --name=README.md nome_do_projeto
