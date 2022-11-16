@@ -3,3 +3,6 @@
 
 # Não manda os arquivos cache do Python
 *pyc
+
+# Arquivo .env
+.env
