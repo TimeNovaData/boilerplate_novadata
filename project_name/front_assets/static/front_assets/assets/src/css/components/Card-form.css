@@ -1,0 +1,40 @@
+
+@layer components {
+  .estilo-form{
+    @apply p-24 w-[50rem] md2:w-full mx-auto relative;
+    .header-card{
+      @apply flex justify-between items-center;
+      .titulo{
+        @apply mr-16;
+        p{
+          @apply text-primary-pure font-semibold text-sm ;
+        }
+        h3{
+          @apply text-2xl text-neutral-80 font-medium;
+        }
+
+      }
+      span{
+        @apply text-neutral-60 font-bold leading-100 text-xs uppercase ;
+      }
+    }
+    .secao-formularios{
+
+      & + .secao-formularios{
+        @apply pb-32;
+      }
+    }
+    .secao-valores{
+      @apply pt-32 ;
+    }
+    .grid-formulario{
+      @apply  grid grid-cols-12 gap-16 sm:grid-cols-1 mt-32;
+      .input-select{
+        @apply  sm:col-span-full;
+      }
+      .input-box{
+        @apply  sm:col-span-full;
+      }
+    }
+  }
+}
