@@ -1,0 +1,27 @@
+@layer components {
+  .card-home {
+    @apply flex flex-col bg-white shadow-sm border border-neutral-10 rounded-lg pt-24 overflow-y-hidden;
+
+    .header-card {
+      @apply flex items-center justify-between border-b border-neutral-10 px-24 pb-16;
+
+      span {
+        @apply block text-neutral-70 font-medium text-sm;
+      }
+
+      h3 {
+        @apply text-2xl font-medium text-neutral-black inline-flex items-center;
+
+        .icone {
+          @apply mr-8
+        }
+
+      }
+
+    }
+
+    .content {
+      @apply flex flex-col;
+    }
+  }
+}

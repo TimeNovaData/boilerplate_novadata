@@ -1,0 +1,173 @@
+@import "tailwindcss/base";
+
+/* /////////////////////////////////////////// */
+/* 	COMPONENTS */
+@import "tailwindcss/components";
+@import "./components/Html.css";
+@import "./components/Body.css";
+@import "./components/Container.css";
+@import "./components/Top_bar.css";
+@import "./components/Sidebar.css";
+@import "./components/Grid.css";
+
+
+/* DESIGN SYSTEM */
+
+@import "./components/Button.css";
+@import "./components/Input-text.css";
+@import "./components/Input-check.css";
+@import "./components/Label.css";
+@import "./components/Card.css";
+@import "./components/Card-form.css";
+@import "./components/Card-details.css";
+@import "./components/Card-grafico.css";
+@import "./components/Card-home.css";
+@import "./components/Tabs.css";
+@import "./components/Accordion.css";
+@import "./components/Breadcrumb.css";
+@import "./components/Container.css";
+@import "./components/Sucesso-screen.css";
+@import "./components/Dropdown.css";
+@import "./components/Input-toggle.css";
+@import "./components/Texto.css";
+@import "./components/DataTable.css";
+@import "./components/Textarea.css";
+@import "./components/TextHelper.css";
+@import "./components/Show-password.css";
+@import "./components/Select.css";
+@import "./components/ErrorList.css";
+@import "./components/TableBasic.css";
+@import "./components/FormInline.css";
+@import "./components/Notificacoes.css";
+@import "./components/Dre.css";
+@import "./components/Relatorio_custo.css";
+@import "./components/Fluxo_caixa.css";
+@import "./components/TabelaGrafico.css";
+
+
+@import "tailwindcss/utilities";
+
+
+/* /////////////////////////////////////////// */
+/* 	UTILITIES */
+
+/* @import "tailwindcss/utilities"; */
+/* @import "./utilities/util.css"; */
+
+
+
+
+
+@layer components {
+  .badge-wrapper {
+    @apply flex items-center;
+
+    &.positivo {
+      .badge {
+        background: rgba(0, 118, 61, 0.1);
+
+        svg {
+          --color1: #00763D;
+        }
+      }
+
+      span {
+        color: #00763D;
+      }
+
+    }
+
+    &.negativo {
+      .badge {
+        background: rgba(205, 15, 15, 0.1);
+
+        svg {
+          transform: rotate(-180deg);
+          --color1: #CD0F0F;
+        }
+      }
+
+      span {
+        color: #CD0F0F;
+      }
+
+    }
+
+    .badge {
+      @apply w-24 h-24 rounded-full flex items-center justify-center;
+
+
+    }
+
+    span {
+      @apply block mx-8 font-bold text-sm;
+    }
+  }
+
+}
+
+@layer components {
+  .positivo {
+    @apply text-positivo;
+  }
+
+  .negativo {
+    @apply text-negative;
+  }
+}
+
+
+
+
+@layer components {
+  .botao-mobile {
+    @apply border border-borda-10 w-48 h-48 hidden md2:flex items-center justify-center rounded-full cursor-pointer hover:border-primary-pure transition-all;
+
+    svg {
+      @apply w-[24px] h-[24px];
+    }
+  }
+}
+
+
+@layer components {
+  .grid-home {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+
+  }
+}
+
+
+.background-pic {
+  @apply overflow-hidden;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+  width: 55vw;
+  height: 100vh;
+
+  @media(max-width: 639px) {
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    transform: translatey(0)
+  }
+
+  &::after {
+    content: '';
+    @apply inset-0 absolute w-full h-full;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
