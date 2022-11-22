@@ -46,7 +46,7 @@ cd nome_do_projeto
 
 - Instale as dependências Python
 ```shell
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 - Instale as dependências Node (você pode deixar esse comando rodando e dar continuidade nos demais em outro terminal)
