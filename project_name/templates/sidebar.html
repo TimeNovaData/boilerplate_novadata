@@ -14,8 +14,7 @@
 	<a class="px-16 pt-0 pb-16 md2:pt-32 flex items-center logo border-b border-neutral-05 relative" href="{% url 'home' %}">
 		<!-- <img class="w-[190px]" src="{% static 'home/assets/src/images/logo.png' %}"> -->
 		<img class="logo-principal" src="{% static 'front_assets/assets/src/images/logo-fechada.png' %}">
-
-Boillerplate
+		Boillerplate
 	</a>
 
 	<ul class="sidebar-items" js-menu-lista>
@@ -56,6 +55,7 @@ Boillerplate
 		<div class="categoria px-32 mt-16">
 			<h3 class="text-xs font-bold text-neutral-50 transition-opacity opacity-100">Categoria 2</h3>
 		</div>
+
 		<li class="group item-0 whitespace-nowrap" js-lista-name="link_1">
 			<a class="menu-item group">
 				<div class="icone">
@@ -68,81 +68,68 @@ Boillerplate
 				<svg class="icon group-hover:opacity-100 icon-arrow">
 					<use xlink:href="#icone-arrow-left"></use>
 				</svg>
-
 			</a>
 		</li>
 
-		
-
 		<li js-lista-name="hidden" class="hidden click-hidden"></li>
-
 	</ul>
 
 	<div class="m-16 flex flex-col gap-8">
-
-	<a href="{% url 'design_system' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
+		<a href="{% url 'design_system' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
 			<p class="inline-flex text-white font-medium text-sm leading-100">Design System</p>
 		</a>
+
 		<a href="{% url 'svg_viewer' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
 			<p class="inline-flex text-white font-medium text-sm leading-100">SVG's</p>
 		</a>
 
 		<a href="{% url 'admin:index' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
 			<p class="inline-flex text-white font-medium text-sm leading-100">Admin</p>
-
 		</a> 
-
 	</div>
 
 	<div class="sidebar-footer ">
 		<div class="user ">
 			{% if request.user.is_authenticated %}
-			<a class="foto relative" href="{% url 'avatar_add' %}">
-				
-				<svg class="icone-hover">
-					<use xlink:href="#icone-camera"></use>
-				</svg>
-			</a>
+				<a class="foto relative" href="#">
+					<svg class="icone-hover">
+						<use xlink:href="#icone-camera"></use>
+					</svg>
+				</a>
 			
 			{% else %}
-			<a class="foto relative bg-primary-pure-light" href="#">
-				<svg class="icone-hover">
-					<use xlink:href="#icone-camera"></use>
-				</svg>
-			</a>
-			
+				<a class="foto relative bg-primary-pure-light" href="#">
+					<svg class="icone-hover">
+						<use xlink:href="#icone-camera"></use>
+					</svg>
+				</a>
 			{% endif %}
 			
-
-
 			<div class="user-info">
 				{% if request.user.get_full_name %}
-				<h3>{{request.user.get_full_name}}</h3>
+					<h3>{{request.user.get_full_name}}</h3>
 				{% else %}
-				<h3>Sem nome</h3>
+					<h3>Sem nome</h3>
 				{% endif %}
-
-		
 			</div>
 		</div>
+
 		<div class="opcoes-container relative">
 			<div class="opcoes">
 				<a class="opcoes-link" href="{% url 'logout' %}">
 					<svg>
 						<use xlink:href="#icone-exit-login-logout"></use>
 					</svg>
-					Sair</a>
+					Sair
+				</a>
 			</div>
 			<button type="button" class="botao-opcoes" onclick="GLOBAL.toggleClassOnButtonClick('.opcoes-container','ativar')">
 				<svg>
 					<use xlink:href="#icone-dots"></use>
 				</svg>
-
 			</button>
 		</div>
-
 	</div>
-
 </nav>
 
 <div class="nav-fundo"></div>
