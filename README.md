@@ -1,13 +1,67 @@
-# Projeto de modelo para o Heroku
+# Projeto de modelo
 ## Intuito e modo de usar
-Esse é um projeto de modelo, criado para facilitar a configuração para o Heroku que sempre fazemos.
+Esse é um projeto de modelo, criado para facilitar a configuração inicial dos nossos sitemas.
 
-Para criar um projeto com toda a configuração necessária para o Heroku você precisa criar uma virtualenv e instalar o django nela,
+## Features
+Esse modelo conta com as seguintes features:
+- Toda a configuração necessária para subir um projeto no Heroku.
+- App home com sidebar padrão dos nossos projetos.
+- App front_assets com diretórios padrão usuados pelos nossos fronts.
+- Design system.
+- SVG viewer.
+- Barra de notificações (apenas no front).
+- Configuração do Django Admin Docs.
 
-depois basta rodar o seguinte comando:
+## Get started
 
+1 - Crie uma venv e ative-a com os seguintes comandos:
+
+Linux
 ```shell
-django-admin startproject --template https://github.com/TimeNovaData/heroku_modelo/raw/master/project_name.zip --name=Procfile --name=README.md nome_do_projeto
+virtualenv -p python .venv_nome_projeto
+source .venv_nome_projeto/bin/activate
+```
+
+Windows
+```shell
+python -m venv .venv_nome_projeto
+.\.venv_nome_projeto\Scripts\activate
+```
+
+2 - Instale o Django
+```shell
+pip install django
+```
+
+3 - Crie um projeto Django utilizando o comando abaixo
+(lembre-se de trocar o fim do comando pelo nome do seu projeto)
+```shell
+django-admin startproject --template https://github.com/TimeNovaData/heroku_modelo/raw/master/project_name.zip --name=Procfile --name=package.json --name=README.md nome_do_projeto
+```
+
+4 - Instale as dependências Python
+```shell
+pip install -r requirements.txt
+```
+
+5 - Instale as dependências Node
+```shell
+npm install
+```
+
+6 - Crie um banco de dados
+```shell
+python manage.py migrate
+```
+
+7 - Crie um super usuário
+```shell
+python manage.py createsuperuser
+```
+
+8 - Rode o projeto
+```shell
+python manage.py runserver
 ```
 
 Depois disso você pode criar o repositório Git, a app no Heroku, conecar ambas e fazer o deploy!
