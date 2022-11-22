@@ -143,13 +143,13 @@
     }
   }
 })({"86rhv":[function(require,module,exports) {
-"use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = 7081;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "e3eb47ae5558e22f";
 module.bundle.HMR_BUNDLE_ID = "f356396b58279329";
+"use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -281,7 +281,7 @@ function removeErrorOverlay() {
     var overlay = document.getElementById(OVERLAY_ID);
     if (overlay) {
         overlay.remove();
-        console.log("[parcel] \u2728 Error resolved");
+        console.log("[parcel] ✨ Error resolved");
     }
 }
 function createErrorOverlay(diagnostics) {
@@ -452,23 +452,23 @@ function hmrApply(bundle, asset) {
         } else if (bundle.parent) hmrApply(bundle.parent, asset);
     }
 }
-function hmrDelete(bundle, id1) {
+function hmrDelete(bundle, id) {
     let modules = bundle.modules;
     if (!modules) return;
-    if (modules[id1]) {
+    if (modules[id]) {
         // Collect dependencies that will become orphaned when this module is deleted.
-        let deps = modules[id1][1];
+        let deps = modules[id][1];
         let orphans = [];
         for(let dep in deps){
             let parents = getParents(module.bundle.root, deps[dep]);
             if (parents.length === 1) orphans.push(deps[dep]);
         } // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
-        delete modules[id1];
-        delete bundle.cache[id1]; // Now delete the orphans.
+        delete modules[id];
+        delete bundle.cache[id]; // Now delete the orphans.
         orphans.forEach((id)=>{
             hmrDelete(module.bundle.root, id);
         });
-    } else if (bundle.parent) hmrDelete(bundle.parent, id1);
+    } else if (bundle.parent) hmrDelete(bundle.parent, id);
 }
 function hmrAcceptCheck(bundle, id, depsByBundle) {
     if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
@@ -611,8 +611,11 @@ var _animationDefault = parcelHelpers.interopDefault(_animation);
 ;
 (0, _formTitleChangeDefault.default)();
 (0, _animationDefault.default)();
-const menu = (0, _multiLevelMenuDefault.default)(subMenuItens).init();
-window.menu = menu;
+const menuObject = (0, _multiLevelMenuDefault.default)(subMenuItens);
+if (menuObject) {
+    const menu = menuObject.init();
+    window.menu = menu;
+}
 window.initAccordion = (0, _accordionDefault.default);
 window.mudaValoresDeAcordoComFormula = (0, _mudaValoresDeAcordoComFormulaJsDefault.default);
 window.myLoader = (0, _loaderDefault.default);
@@ -706,10 +709,10 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function breadcrumb() {
     const attr = "[js-breadcrumb]";
-    const breadcrumb1 = document.querySelector(`.breadcrumb${attr}`);
-    const objStr = breadcrumb1 === null || breadcrumb1 === void 0 ? void 0 : breadcrumb1.dataset.obj;
+    const breadcrumb = document.querySelector(`.breadcrumb${attr}`);
+    const objStr = breadcrumb?.dataset.obj;
     console.log(objStr);
-    if (!breadcrumb1 || !objStr) return;
+    if (!breadcrumb || !objStr) return;
     const obj = JSON.parse(objStr.replaceAll(`'`, `"`));
     const aLength = obj.length - 1;
     const items = obj.map(({ name , slug , link  }, index)=>`
@@ -729,10 +732,10 @@ function breadcrumb() {
 			</ul>
 		`;
     };
-    breadcrumb1.innerHTML = template();
+    breadcrumb.innerHTML = template();
     if (GLOBAL.isMobile) {
         const breadMobile = document.querySelector(".breadcrumb-mobile");
-        breadMobile.appendChild(breadcrumb1);
+        breadMobile.appendChild(breadcrumb);
     }
 }
 exports.default = breadcrumb;
@@ -741,8 +744,7 @@ exports.default = breadcrumb;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function dataTablesInit() {
-    var ref;
-    (ref = document.querySelectorAll("table[js-dataTables]")) === null || ref === void 0 ? void 0 : ref.forEach((t)=>{
+    document.querySelectorAll("table[js-dataTables]")?.forEach((t)=>{
         const props = t.dataset.props || {};
         const Dtable = $(t).DataTable({
             "language": {
@@ -799,7 +801,7 @@ function dropdown() {
     dropdownMenus.forEach((menu)=>{
         [
             "touchstart",
-            "click", 
+            "click"
         ].forEach((userEvent)=>{
             menu.addEventListener(userEvent, handleClick);
         });
@@ -928,7 +930,7 @@ function inlineFunctions() {
         const inlineAccordions = inline.querySelectorAll("[data-accordion]");
         const accordionsTitle = inline.querySelectorAll(".accordion-title .texto");
         accordionsTitle.forEach((i)=>i.innerText = `Item n°${id}`);
-        inlineAccordions === null || inlineAccordions === void 0 ? void 0 : inlineAccordions.forEach((i)=>i.setAttribute("data-accordion", id));
+        inlineAccordions?.forEach((i)=>i.setAttribute("data-accordion", id));
     // window.initAccordion(accordionsItem, id);
     }
     (function init() {
@@ -954,7 +956,7 @@ function inputToogleActive() {
 	`;
     const inputs = document.querySelectorAll(type);
     // console.log('inputs', inputs)
-    inputs === null || inputs === void 0 ? void 0 : inputs.forEach((input1)=>input1.addEventListener("change", (event)=>{
+    inputs?.forEach((input)=>input.addEventListener("change", (event)=>{
             const input = event.currentTarget;
             input.value.length !== 0 ? input.classList.add("active") : input.classList.remove("active");
         }));
@@ -971,6 +973,7 @@ function multiLevelMenu(obj) {
     };
     const { isTablet , debounceFunction  } = GLOBAL;
     const sidebar = document.querySelector(".sidebar");
+    if (!sidebar) return false;
     const sideBarOptions = document.querySelector(".opcoes-container");
     const body = document.body;
     const svgAdicionar = `<svg><use xlink:href="#icon_add"></use></svg>`;
@@ -1019,18 +1022,18 @@ function multiLevelMenu(obj) {
         return div;
     };
     //Cria subMenus
-    const createSubMenus = ({ slug: slug1 , submenu: submenu1 , name: name1  })=>{
+    const createSubMenus = ({ slug , submenu , name  })=>{
         // console.log(slug)
-        const itemMenu1 = getStaticMenu(slug1);
+        const itemMenu1 = getStaticMenu(slug);
         const svg = itemMenu1.querySelector("svg").cloneNode(true);
         svg.style.setProperty("--cor-1", "white");
-        if (!submenu1) return;
-        populateMenuLevel(itemMenu1, submenu1, name1, svg);
-        submenu1.items.forEach(({ slug: slug2 , submenu: submenu2 , name: name2  })=>{
-            const itemMenu2 = getStaticMenu(slug2);
-            if (!submenu2) return;
-            populateMenuLevel(itemMenu2, submenu2, name2);
-            submenu2.items.forEach(({ slug , submenu , name  })=>{
+        if (!submenu) return;
+        populateMenuLevel(itemMenu1, submenu, name, svg);
+        submenu.items.forEach(({ slug , submenu , name  })=>{
+            const itemMenu2 = getStaticMenu(slug);
+            if (!submenu) return;
+            populateMenuLevel(itemMenu2, submenu, name);
+            submenu.items.forEach(({ slug , submenu , name  })=>{
                 const itemMenu3 = getStaticMenu(slug);
                 if (!submenu) return;
                 populateMenuLevel(itemMenu3, submenu, name);
@@ -1042,7 +1045,7 @@ function multiLevelMenu(obj) {
         body.classList.remove("menu-ativo");
         toogleMenu();
     };
-    const handleClickItem = (i1)=>(e)=>{
+    const handleClickItem = (i)=>(e)=>{
             //e.preventDefault()
             setTimeout(()=>sidebar.classList.add("animou"), 200) //add classe para animar apenas uma vez
             ;
@@ -1052,7 +1055,7 @@ function multiLevelMenu(obj) {
             ;
             body.classList.remove("dont-open-submenu") // remove a classe que impede que o submenu seja aberto
             ;
-            i1.classList.toggle("active");
+            i.classList.toggle("active");
         };
     const toogleMenu = ()=>{
         //funcao do jquery que me da mais certeza c o menu esta aberto ou n
@@ -1089,7 +1092,7 @@ function multiLevelMenu(obj) {
     const events = ()=>{
         itensLV0.forEach((i)=>i.addEventListener("click", handleClickItem(i)));
         if (isTablet) {
-            toogle === null || toogle === void 0 ? void 0 : toogle.addEventListener("click", toogleMenu);
+            toogle?.addEventListener("click", toogleMenu);
             document.querySelectorAll(".icon-back").forEach((i)=>i.addEventListener("click", backLevel));
         } else {
             sidebar.addEventListener("mouseenter", debounceFunction(toogleMenu, state.delay));
@@ -1145,10 +1148,9 @@ exports.default = showToast;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function startAllChoices() {
-    var ref;
-    const allSelects = (ref = [
+    const allSelects = [
         ...document.querySelectorAll("select[js-choices]")
-    ]) === null || ref === void 0 ? void 0 : ref.filter((select)=>!select.hasAttribute("js-no-choices"));
+    ]?.filter((select)=>!select.hasAttribute("js-no-choices"));
     if (!allSelects) return;
     const listOfChoices = [
         ...allSelects
@@ -1182,9 +1184,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function tabs() {
     const attr = "[js-tab]";
-    const tabs1 = document.querySelectorAll(`.tabs${attr}`);
-    if (!tabs1.length) return;
-    tabs1.forEach((t)=>initTab(t));
+    const tabs = document.querySelectorAll(`.tabs${attr}`);
+    if (!tabs.length) return;
+    tabs.forEach((t)=>initTab(t));
     function initTab(tab) {
         console.log(tab);
         const collapses = tab.querySelectorAll(".tab-collapse");
@@ -1234,8 +1236,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function tableSelecionarColunas() {
     const attr = "[js-selecionar-colunas]";
-    const els1 = document.querySelectorAll(attr);
-    if (!els1.length) return;
+    const els = document.querySelectorAll(attr);
+    if (!els.length) return;
     const url = new URL(window.location);
     let filtersOBJ = GLOBAL.splitFilters(url.search);
     let colunasOcultas;
@@ -1260,14 +1262,14 @@ function tableSelecionarColunas() {
     if (filtersOBJ) {
         if (filtersOBJ["colunas_ocultas"]) colunasInicialmenteOcultas = filtersOBJ["colunas_ocultas"].split(",");
     }
-    els1.forEach((drop)=>{
+    els.forEach((drop)=>{
         const inputs = drop.querySelectorAll("input");
         inputs.forEach((input)=>input.addEventListener("change", showHideColun(input, drop)));
         if (colunasInicialmenteOcultas) {
             const els = [
                 ...drop.querySelectorAll(colunasInicialmenteOcultas.map((i)=>`input[value=${i}]`).join(","))
             ];
-            els === null || els === void 0 ? void 0 : els.forEach((i)=>{
+            els?.forEach((i)=>{
                 i.checked = false;
                 i.dispatchEvent(new Event("change"));
             });
@@ -1285,15 +1287,15 @@ function tableBasicOrdenation() {
     if (!els.length) return;
     const url = GLOBAL.url;
     const filtersOBJ = GLOBAL.splitFilters(url.search);
-    const order = filtersOBJ === null || filtersOBJ === void 0 ? void 0 : filtersOBJ.order;
+    const order = filtersOBJ?.order;
     if (!order) return;
-    const upOrDown = (order === null || order === void 0 ? void 0 : order.includes("-")) ? "down" : "up";
+    const upOrDown = order?.includes("-") ? "down" : "up";
     console.log("FILTROS ATIVOS", filtersOBJ);
     els.forEach((table)=>{
         console.log(order);
         const th = table.querySelector(`thead [data-reference='${order.replace("-", "")}']`);
         console.log("th", th);
-        th === null || th === void 0 ? void 0 : th.classList.add(upOrDown);
+        th?.classList.add(upOrDown);
     });
 }
 exports.default = tableBasicOrdenation;
@@ -1307,18 +1309,16 @@ function addFilterURLAndReload() {
     if (!els.length) return;
     els.forEach((i)=>i.addEventListener("click", handleCallback));
     function handleCallback(e) {
-        var ref;
         e.preventDefault();
         const target = e.currentTarget;
-        const filtro = (ref = target.getAttribute("js-add-filter")) === null || ref === void 0 ? void 0 : ref.split(",");
+        const filtro = target.getAttribute("js-add-filter")?.split(",");
         const [param, value] = filtro;
-        const valueClean = value === null || value === void 0 ? void 0 : value.trim();
+        const valueClean = value?.trim();
         const url = new URL(window.location);
         let filtersOBJ = GLOBAL.splitFilters(url.search);
         // const haveSameFilter = filtersOBJ ? filtersOBJ[param] : false
         if (filtersOBJ) {
-            var ref1;
-            if (param === "order" && ((ref1 = filtersOBJ.order) === null || ref1 === void 0 ? void 0 : ref1.replace("-", "")) === valueClean) {
+            if (param === "order" && filtersOBJ.order?.replace("-", "") === valueClean) {
                 console.log(target.classList.contains("up"));
                 if (target.classList.contains("up")) filtersOBJ[param] = `-${valueClean}`;
                 else filtersOBJ[param] = valueClean;
@@ -1382,15 +1382,15 @@ parcelHelpers.defineInteropFlag(exports);
 function tableBasicQnt() {
     const attr = "js-table-qnt";
     const els = document.querySelectorAll(`[${attr}]`);
-    const url1 = new URL(window.location);
-    let filtersOBJ1 = GLOBAL.splitFilters(url1.search);
+    const url = new URL(window.location);
+    let filtersOBJ = GLOBAL.splitFilters(url.search);
     if (!els.length) return;
     els.forEach((i)=>{
         i.addEventListener("change", search(i));
-        if (!filtersOBJ1) return;
-        if (filtersOBJ1["paginate_by"]) {
+        if (!filtersOBJ) return;
+        if (filtersOBJ["paginate_by"]) {
             const select = GLOBAL.getChoicesActive(i.id, listOfChoices);
-            select.setChoiceByValue(filtersOBJ1["paginate_by"]);
+            select.setChoiceByValue(filtersOBJ["paginate_by"]);
         }
     });
     function search(input) {
@@ -1416,15 +1416,15 @@ parcelHelpers.defineInteropFlag(exports);
 function tableBasicRecentes() {
     const attr = "js-table-recentes";
     const els = document.querySelectorAll(`[${attr}]`);
-    const url1 = new URL(window.location);
-    let filtersOBJ1 = GLOBAL.splitFilters(url1.search);
+    const url = new URL(window.location);
+    let filtersOBJ = GLOBAL.splitFilters(url.search);
     if (!els.length) return;
     els.forEach((i)=>{
         i.addEventListener("change", search(i));
-        if (!filtersOBJ1) return;
-        if (filtersOBJ1["order"]) {
+        if (!filtersOBJ) return;
+        if (filtersOBJ["order"]) {
             const select = GLOBAL.getChoicesActive(i.id, listOfChoices);
-            select.setChoiceByValue(filtersOBJ1["order"]);
+            select.setChoiceByValue(filtersOBJ["order"]);
         }
     });
     function search(input) {
@@ -1501,7 +1501,7 @@ exports.default = initNotification;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"2GLs3"}],"6jGOO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-function mudaValoresDeAcordoComFormula(form, formulas1) {
+function mudaValoresDeAcordoComFormula(form, formulas) {
     function mudavalores(formulas) {
         //pego cada objeto de formula
         const relacaoFormulas = Object.values(formulas).map((value)=>value);
@@ -1509,9 +1509,9 @@ function mudaValoresDeAcordoComFormula(form, formulas1) {
         relacaoFormulas.map((i)=>i.el.innerHTML = i.formula());
     }
     //rodo inicialmente pra mudar o valor
-    mudavalores(formulas1);
+    mudavalores(formulas);
     //adiciono o change pra rodar a mudanca de valores
-    form.addEventListener("change", ()=>mudavalores(formulas1));
+    form.addEventListener("change", ()=>mudavalores(formulas));
 }
 exports.default = mudaValoresDeAcordoComFormula;
 
@@ -1592,6 +1592,6 @@ function initialAnimations() {
 }
 exports.default = initialAnimations;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"2GLs3"}]},["86rhv","3TfXL"], "3TfXL", "parcelRequire9438")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"2GLs3"}]},["86rhv","3TfXL"], "3TfXL", "parcelRequire74e6")
 
 //# sourceMappingURL=main.js.map

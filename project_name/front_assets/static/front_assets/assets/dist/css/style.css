@@ -17,10 +17,7 @@
   width: 500px;
   height: 500px;
   margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   transform: translateY(30px);
 }
 
@@ -214,7 +211,6 @@
   border: .3125rem solid #0000;
   border-top-color: #495057;
   border: initial;
-  transform: rotate(0);
   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xLjY2Njc1IDEuMzMzOThMNS4wMDAwOCA0LjY2NzMyTDguMzMzNDEgMS4zMzM5OCIgc3Ryb2tlPSIjMDA0OTkzIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=");
   background-repeat: no-repeat;
   margin: auto 0;
@@ -223,6 +219,7 @@
   top: 0;
   bottom: 0;
   right: .7188rem;
+  transform: rotate(0);
 }
 
 .choices[data-type*="select-one"].is-open:after {
@@ -358,8 +355,8 @@
   will-change: visibility;
   background-color: #fff;
   border: .0625rem solid #0000;
-  border-bottom-left-radius: .1563rem;
   border-bottom-right-radius: .1563rem;
+  border-bottom-left-radius: .1563rem;
   margin-top: .25rem;
   position: absolute;
   top: 100%;
@@ -524,7 +521,6 @@
 }
 
 .choices__list--dropdown {
-  min-width: -webkit-max-content;
   min-width: max-content;
   z-index: 5;
   background: #fff;
@@ -841,7 +837,6 @@ th.gridjs-th-sort:hover, th.gridjs-th-sort:focus {
 }
 
 th.gridjs-th-fixed {
-  position: -webkit-sticky;
   position: sticky;
   box-shadow: 0 1px #e5e7eb;
 }
@@ -908,21 +903,15 @@ th.gridjs-th:last-child {
   opacity: .5;
   background-color: #fff;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 
 .gridjs-loading-bar:after {
   content: "";
   background-image: linear-gradient(90deg, #ccc0 0, #ccc3 20%, #cccccc80 60%, #ccc0);
-  animation: shimmer 2s infinite;
+  animation: 2s infinite shimmer;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   transform: translateX(-100%);
 }
 
@@ -1048,10 +1037,7 @@ th.gridjs-th:last-child {
   border-radius: 50%;
   margin: auto;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   transform: rotateZ(45deg);
 }
 
@@ -1064,10 +1050,7 @@ th.gridjs-th:last-child {
   background: #ffffffda;
   margin: auto;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 
 .loader-net:before, .loader-net:after {
@@ -1075,7 +1058,7 @@ th.gridjs-th:last-child {
   width: inherit;
   height: inherit;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: 1s linear infinite spin;
   display: block;
   position: absolute;
   top: 0;
@@ -1091,7 +1074,7 @@ th.gridjs-th:last-child {
 
 @keyframes rotate {
   0% {
-    transform: translate(-50%, -50%)rotateZ(0deg);
+    transform: translate(-50%, -50%)rotateZ(0);
   }
 
   100% {
@@ -1101,7 +1084,7 @@ th.gridjs-th:last-child {
 
 @keyframes rotateccw {
   0% {
-    transform: translate(-50%, -50%)rotate(0deg);
+    transform: translate(-50%, -50%)rotate(0);
   }
 
   100% {
@@ -1162,10 +1145,7 @@ th.gridjs-th:last-child {
   width: 500px;
   height: 500px;
   margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   transform: translateY(30px);
 }
 
