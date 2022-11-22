@@ -69,7 +69,8 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Depois disso você pode criar o repositório Git, a app no Heroku, conecar ambas e fazer o deploy!
+Feito! Seu projeto está rodando com diversas coisas úteis já configuradas.
+Agora é só codar!!
 
 ## Deseja fazer modificações?
 Basta baixar o projeto em sua máquina, modificar o que desejar, apagar e recriar o arquivo .zip e fazer o pull request como de costume!
