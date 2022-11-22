@@ -14,7 +14,7 @@ Esse modelo conta com as seguintes features:
 
 ## Get started
 
-1 - Crie uma venv e ative-a com os seguintes comandos:
+- Crie uma venv e ative-a com os seguintes comandos:
 
 Linux
 ```shell
@@ -28,38 +28,43 @@ python -m venv .venv_nome_projeto
 .\.venv_nome_projeto\Scripts\activate
 ```
 
-2 - Instale o Django
+- Instale o Django
 ```shell
 pip install django
 ```
 
-3 - Crie um projeto Django utilizando o comando abaixo
+- Crie um projeto Django utilizando o comando abaixo
 (lembre-se de trocar o fim do comando pelo nome do seu projeto)
 ```shell
 django-admin startproject --template https://github.com/TimeNovaData/heroku_modelo/raw/master/project_name.zip --name=Procfile --name=package.json --name=README.md nome_do_projeto
 ```
 
-4 - Instale as dependências Python
+- Entre na pasta do projeto
+```shell
+cd nome_do_projeto
+```
+
+- Instale as dependências Python
 ```shell
 pip install -r requirements.txt
 ```
 
-5 - Instale as dependências Node
+- Instale as dependências Node (você pode deixar esse comando rodando e dar continuidade nos demais em outro terminal)
 ```shell
 npm install
 ```
 
-6 - Crie um banco de dados
+- Crie um banco de dados
 ```shell
 python manage.py migrate
 ```
 
-7 - Crie um super usuário
+- Crie um super usuário
 ```shell
 python manage.py createsuperuser
 ```
 
-8 - Rode o projeto
+- Rode o projeto
 ```shell
 python manage.py runserver
 ```
