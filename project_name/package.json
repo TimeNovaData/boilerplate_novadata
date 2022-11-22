@@ -1,5 +1,5 @@
 {
-  "name": "abihpec",
+  "name": "{{project_name}}",
   "version": "1.0.0",
   "description": "",
   "author": "novadata",
@@ -17,7 +17,6 @@
     "dev": "concurrently --kill-others \"npm run watch-css\" \"npm run watch-js\" \"npm run watch-scss\"  \"npm run watch-vue\"",
     "build": "concurrently  \"npm run build-css\" \"npm run build-js\" \"npm run build-scss\" \"npm run build-vue\""
   },
-
   "browserslist": "> 0.5%, not dead",
   "devDependencies": {
     "@parcel/config-default": "^2.5.0",
