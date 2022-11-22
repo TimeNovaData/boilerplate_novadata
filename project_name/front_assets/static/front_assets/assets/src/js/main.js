@@ -47,11 +47,8 @@ tableBasicRecentes() //ordena por id maior ou menor
 formTitleChange()
 initialAnimations()
 
-const menuObject = multiLevelMenu(subMenuItens)
-if (menuObject) {
-	const menu = menuObject.init()
-	window.menu = menu
-}
+const menu = multiLevelMenu(subMenuItens).init()
+window.menu = menu
 window.initAccordion = accordion;
 window.mudaValoresDeAcordoComFormula = mudaValoresDeAcordoComFormula;
 window.myLoader = loader;
