@@ -4,6 +4,7 @@ export default function multiLevelMenu(obj) {
 	const { isTablet, debounceFunction } = GLOBAL
 
 	const sidebar = document.querySelector(".sidebar");
+	if (!sidebar) return false;
 	const sideBarOptions = document.querySelector('.opcoes-container');
 	const body = document.body
 
