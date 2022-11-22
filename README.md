@@ -1,8 +1,8 @@
-# Projeto de modelo
-## Intuito e modo de usar
-Esse é um projeto de modelo, criado para facilitar a configuração inicial dos nossos sitemas.
+# Boilerplate
+Um boilerplate é um projeto de modelo, criado para facilitar a configuração inicial dos nossos sitemas, trazendo algumas coisas já pré-configuradas,
+assim nós só precisamos nos preocupar em desenvolver de fato o sistema.
 
-## Features
+
 Esse modelo conta com as seguintes features:
 - Toda a configuração necessária para subir um projeto no Heroku.
 - App home com sidebar padrão dos nossos projetos.
@@ -36,7 +36,7 @@ pip install django
 - Crie um projeto Django utilizando o comando abaixo
 (lembre-se de trocar o fim do comando pelo nome do seu projeto)
 ```shell
-django-admin startproject --template https://github.com/TimeNovaData/heroku_modelo/raw/master/project_name.zip --name=Procfile --name=package.json --name=README.md nome_do_projeto
+django-admin startproject --template https://github.com/TimeNovaData/boilerplate_novadata/raw/master/project_name.zip --name=Procfile --name=package.json --name=README.md nome_do_projeto
 ```
 
 - Entre na pasta do projeto
