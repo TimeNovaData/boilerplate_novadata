@@ -11,6 +11,10 @@ Esse modelo conta com as seguintes features:
 - SVG viewer.
 - Barra de notificações (apenas no front).
 - Configuração do Django Admin Docs.
+- Configuração do Django Rest Framework.
+- Configuração do Django Spectacular.
+- BaseViewNovadata, contanto com implementação de breadcrumbs por padrão.
+- Altenticação por user e por e-mail simultaneamente.
 
 ## Get started
 
@@ -54,8 +58,9 @@ pip install -r requirements-dev.txt
 npm install
 ```
 
-- Crie um banco de dados
+- Crie as migrations extras e um banco de dados
 ```shell
+python manage.py makemigrations
 python manage.py migrate
 ```
 
