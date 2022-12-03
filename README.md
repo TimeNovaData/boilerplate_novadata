@@ -11,6 +11,9 @@ Esse modelo conta com as seguintes features:
 - SVG viewer.
 - Barra de notificações (apenas no front).
 - Configuração do Django Admin Docs.
+- Configuração do Django Rest Framework.
+- Configuração do Django Spectacular.
+- BaseViewNovadata, contanto com implementação de breadcrumbs por padrão.
 
 ## Get started
 
