@@ -57,8 +57,9 @@ pip install -r requirements-dev.txt
 npm install
 ```
 
-- Crie um banco de dados
+- Crie as migrations extras e um banco de dados
 ```shell
+python manage.py makemigrations
 python manage.py migrate
 ```
 
