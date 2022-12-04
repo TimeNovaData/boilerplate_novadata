@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
 	'drf_spectacular',
 	'drf_spectacular_sidecar',
+    'import_export',
     'rest_framework',
     'widget_tweaks',
 ]
