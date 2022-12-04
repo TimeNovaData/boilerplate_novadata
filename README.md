@@ -9,6 +9,7 @@ Esse modelo conta com as seguintes features:
 - Configuração do Django Rest Framework.
 - Configuração do Django Spectacular.
 - Configuração do Django Browser Reload.
+- Configuração do Django Debug Toolbar.
 - App home com sidebar padrão dos nossos projetos.
 - App front_assets com diretórios padrão usuados pelos nossos fronts.
 - Design system.
