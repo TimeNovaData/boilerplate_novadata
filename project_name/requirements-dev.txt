@@ -9,6 +9,7 @@ django-browser-reload
 django-filter
 django-import-export
 django-widget-tweaks
+django_debug_toolbar
 djangorestframework
 docutils
 drf-spectacular
