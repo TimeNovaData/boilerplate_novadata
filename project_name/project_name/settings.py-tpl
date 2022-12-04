@@ -16,6 +16,10 @@ ALLOWED_HOSTS = [
     '{{project_name}}.herokuapp.com',
 ]
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admindocs',
     'django.contrib.admin',
@@ -31,6 +35,8 @@ INSTALLED_APPS = [
     'home',
 
     # Libs
+    'debug_toolbar',
+    'django_browser_reload',
 	'drf_spectacular',
 	'drf_spectacular_sidecar',
     'rest_framework',
@@ -45,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
+
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = '{{project_name}}.urls'

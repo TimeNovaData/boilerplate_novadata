@@ -4,17 +4,19 @@ assim nós só precisamos nos preocupar em desenvolver de fato o sistema.
 
 
 Esse modelo conta com as seguintes features:
-- Toda a configuração necessária para subir um projeto no Heroku.
+- Configuração do Heroku.
+- Configuração do Django Admin Docs.
+- Configuração do Django Rest Framework.
+- Configuração do Django Spectacular.
+- Configuração do Django Browser Reload.
+- Configuração do Django Debug Toolbar.
 - App home com sidebar padrão dos nossos projetos.
 - App front_assets com diretórios padrão usuados pelos nossos fronts.
 - Design system.
 - SVG viewer.
 - Barra de notificações (apenas no front).
-- Configuração do Django Admin Docs.
-- Configuração do Django Rest Framework.
-- Configuração do Django Spectacular.
 - BaseViewNovadata, contanto com implementação de breadcrumbs por padrão.
-- Altenticação por user e por e-mail simultaneamente.
+- Autenticação de login por user e e-mail simultaneamente.
 
 ## Get started
 
