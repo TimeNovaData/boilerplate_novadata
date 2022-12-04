@@ -14,7 +14,7 @@ Esse modelo conta com as seguintes features:
 - Configuração do Django Rest Framework.
 - Configuração do Django Spectacular.
 - BaseViewNovadata, contanto com implementação de breadcrumbs por padrão.
-- Altenticação por user e por e-mail simultaneamente.
+- Autenticação de login por user e e-mail simultaneamente.
 
 ## Get started
 
