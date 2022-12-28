@@ -1,4 +1,6 @@
 {% load static %}
+{% load home_tags %}
+{% is_dev as is_dev %}
 
 
 <!DOCTYPE html>
@@ -67,6 +69,17 @@
         <div class="loader--center loader"></div>
         <p></p>
     </div>
+
+	{% if request.content_params.app and request.content_params.model and is_dev %}
+        <div class="flex justify-end absolute right-20 mb-48 bottom-20">
+            <a href="{% url 'django-admindocs-models-detail' request.content_params.app request.content_params.model %}"
+                target="_blank" class="btn icon-left secondary h-56  rounded-[50%] !fixed">
+                <svg class="!w-[20px] !h-[20px]">
+                    <use xlink:href="#icon_btnRelatorio"></use>
+                </svg>
+            </a>
+        </div>
+	{% endif %}
 
 
     <!-- TOASTIFY -->
