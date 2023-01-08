@@ -1,8 +1,7 @@
 {% load static %}
 
-
-
-<nav class="sidebar border-r border-primary-pure-light w-[var(--width-menu)] shrink-0 h-screen flex flex-col fixed top-0 left-0 z-50 py-32">
+<nav
+	class="sidebar border-r border-primary-pure-light w-[var(--width-menu)] shrink-0 h-screen flex flex-col fixed top-0 left-0 z-50 py-32">
 
 	<div class="botao-mobile close absolute top-16 right-16 z-[100]" onclick="menu.toogleMenu()">
 		<svg class="w-[24px] h-[24px]">
@@ -11,7 +10,8 @@
 	</div>
 
 
-	<a class="px-16 pt-0 pb-16 md2:pt-32 flex items-center logo border-b border-neutral-05 relative" href="{% url 'home' %}">
+	<a class="px-16 pt-0 pb-16 md2:pt-32 flex items-center logo border-b border-neutral-05 relative"
+		href="{% url 'home' %}">
 		<!-- <img class="w-[190px]" src="{% static 'home/assets/src/images/logo.png' %}"> -->
 		<img class="logo-principal" src="{% static 'front_assets/assets/src/images/logo-fechada.png' %}">
 		Boillerplate
@@ -75,28 +75,49 @@
 	</ul>
 
 	<div class="m-16 flex flex-col gap-8">
-		<a href="{% url 'design_system' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
-			<p class="inline-flex text-white font-medium text-sm leading-100">Design System</p>
-		</a>
+		{% if user.is_superuser %}
+			<a href="{% url 'admin:index' %}" target="_blank" js-lista-name="controladoria"
+				class="h-40 whitespace-nowrap menu-item group">
+				<p class="inline-flex text-white font-medium text-sm leading-100">Admin</p>
+			</a>
+		{% endif %}
 
-		<a href="{% url 'svg_viewer' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
-			<p class="inline-flex text-white font-medium text-sm leading-100">SVG's</p>
-		</a>
+		{% if is_dev %}
+			<a href="{% url 'design_system' %}" target="_blank" js-lista-name="controladoria"
+				class="h-40 whitespace-nowrap menu-item group">
+				<p class="inline-flex text-white font-medium text-sm leading-100">Design System</p>
+			</a>
 
-		<a href="{% url 'admin:index' %}" target="_blank" js-lista-name="controladoria" class="h-40 whitespace-nowrap menu-item group">
-			<p class="inline-flex text-white font-medium text-sm leading-100">Admin</p>
-		</a> 
+			<a href="{% url 'svg_viewer' %}" target="_blank" js-lista-name="controladoria"
+				class="h-40 whitespace-nowrap menu-item group">
+				<p class="inline-flex text-white font-medium text-sm leading-100">SVG's</p>
+			</a>
+
+			<a href="{% url 'django-admindocs-docroot' %}" target="_blank" js-lista-name="controladoria"
+				class="h-40 whitespace-nowrap menu-item group">
+				<p class="inline-flex text-white font-medium text-sm leading-100">Admin docs</p>
+			</a>
+
+			<a href="{% url 'swagger' %}" target="_blank" js-lista-name="controladoria"
+				class="h-40 whitespace-nowrap menu-item group">
+				<p class="inline-flex text-white font-medium text-sm leading-100">API docs - Swagger</p>
+			</a>
+
+			<a href="{% url 'redoc' %}" target="_blank" js-lista-name="controladoria"
+				class="h-40 whitespace-nowrap menu-item group">
+				<p class="inline-flex text-white font-medium text-sm leading-100">API docs - Redoc</p>
+			</a>
+		{% endif %}
 	</div>
 
 	<div class="sidebar-footer ">
 		<div class="user ">
-			{% if request.user.is_authenticated %}
+			{% if user.is_authenticated %}
 				<a class="foto relative" href="#">
 					<svg class="icone-hover">
 						<use xlink:href="#icone-camera"></use>
 					</svg>
 				</a>
-			
 			{% else %}
 				<a class="foto relative bg-primary-pure-light" href="#">
 					<svg class="icone-hover">
@@ -104,10 +125,10 @@
 					</svg>
 				</a>
 			{% endif %}
-			
+
 			<div class="user-info">
-				{% if request.user.get_full_name %}
-					<h3>{{request.user.get_full_name}}</h3>
+				{% if user.get_full_name %}
+					<h3>{{user.get_full_name}}</h3>
 				{% else %}
 					<h3>Sem nome</h3>
 				{% endif %}
@@ -123,7 +144,8 @@
 					Sair
 				</a>
 			</div>
-			<button type="button" class="botao-opcoes" onclick="GLOBAL.toggleClassOnButtonClick('.opcoes-container','ativar')">
+			<button type="button" class="botao-opcoes"
+				onclick="GLOBAL.toggleClassOnButtonClick('.opcoes-container','ativar')">
 				<svg>
 					<use xlink:href="#icone-dots"></use>
 				</svg>
@@ -131,5 +153,6 @@
 		</div>
 	</div>
 </nav>
-
-<div class="nav-fundo"></div>
+<div class="nav-fundo"></di
+{% load home_tags %}
+{% is_dev as is_dev %}

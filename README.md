@@ -62,10 +62,11 @@ pip install -r requirements-dev.txt
 npm install
 ```
 
-- Crie as migrations extras e um banco de dados
+- Crie as migrations extras, um banco de dados e colete os arquivos estáticos
 ```shell
 python manage.py makemigrations
 python manage.py migrate
+python manage.py collectstatic
 ```
 
 - Crie um super usuário

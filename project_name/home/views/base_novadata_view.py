@@ -1,7 +1,7 @@
-from django.views.generic import TemplateView
+from django.views.generic import View
 
 
-class BaseNovadataView(TemplateView):
+class BaseNovadataView(View):
     need_breadcrumb = True
 
     def get_context_data(self, **kwargs):

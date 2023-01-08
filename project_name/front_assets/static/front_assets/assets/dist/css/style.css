@@ -841,7 +841,7 @@ th.gridjs-th-fixed {
   box-shadow: 0 1px #e5e7eb;
 }
 
-@supports (-moz-appearance: none) {
+@supports ((-moz-appearance: none)) {
   th.gridjs-th-fixed {
     box-shadow: 0 0 0 1px #e5e7eb;
   }
