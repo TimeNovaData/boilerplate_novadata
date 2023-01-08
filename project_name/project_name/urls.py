@@ -19,15 +19,15 @@ urlpatterns = [
     path("api/", include(main_router.urls)),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        "api/schema/swagger-ui/",
+        "api/docs-swagger/",
         SpectacularSwaggerView.as_view(url_name="schema"),
-        name="swagger-ui",
+        name="swagger",
     ),
     path(
-        "api/schema/redoc/",
+        "api/docs-redoc/",
         SpectacularRedocView.as_view(url_name="schema"),
         name="redoc",
     ),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('__debug__/', include('debug_toolbar.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
