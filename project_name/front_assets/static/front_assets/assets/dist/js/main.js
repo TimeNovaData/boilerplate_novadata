@@ -1592,6 +1592,6 @@ function initialAnimations() {
 }
 exports.default = initialAnimations;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"2GLs3"}]},["86rhv","3TfXL"], "3TfXL", "parcelRequireacf0")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"2GLs3"}]},["86rhv","3TfXL"], "3TfXL", "parcelRequire9d8b")
 
 //# sourceMappingURL=main.js.map
