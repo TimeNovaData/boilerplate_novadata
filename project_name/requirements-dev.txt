@@ -16,6 +16,8 @@ docutils
 drf-spectacular
 drf-spectacular-sidecar
 Markdown
+mypy
+mypy-extensions
 python-decouple==3.6
 pytz==2021.3
 setuptools
