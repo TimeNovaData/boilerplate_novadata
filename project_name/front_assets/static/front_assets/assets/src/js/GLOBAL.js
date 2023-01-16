@@ -126,7 +126,7 @@ const GLOBAL = {
 	/////////////////////////////////////////
 	debounceFunction: (fn, wait = 1000, timing) => {
 		return (...args) => {
-			console.log("ENTROU DEBOUNCE");
+			// console.log("ENTROU DEBOUNCE");
 			clearTimeout(timing)
 			timing = setTimeout(() => fn(...args), wait)
 
@@ -282,7 +282,7 @@ const GLOBAL = {
 		if (!section) return
 		//insere o template html dos wrappers
 		section.insertAdjacentHTML('afterbegin', templateHTML)
-		console.log(section, templateHTML)
+		// console.log(section, templateHTML)
 		// retorna um array com um objeto relacionando label,field,wrapper
 		const arrayForm = Object
 			.entries(objForm)// [ ['tipo'], [{}] ]
@@ -340,32 +340,22 @@ const GLOBAL = {
 	},
 
 	FormatREALBackEnd: (v) => {
-			const value = v.includes(",") ? v.split(",") : [v.slice(0, -3), v.slice(-2)]
-			console.log(value)
-			const [money, cents] = value
-			return `${money.replaceAll(".", "")}.${cents}`
+		const value = v.includes(",") ? v.split(",") : [v.slice(0, -3), v.slice(-2)]
+		// console.log(value)
+		const [money, cents] = value
+		return `${money.replaceAll(".", "")}.${cents}`
 	},
 
- 	realToNumber: (v) =>{
+	realToNumber: (v) => {
 		const centavos = `${v}`.startsWith("0.")
 		const value = parseFloat(`${v}`.replace(/\./g, '').replace(',', '.'))
 		return centavos ? Number(`0.${value}`) : value
 	},
 
-	scrollTopBar: (el) =>{
+	scrollTopBar: (el) => {
 		window.addEventListener("scroll", function () {
-			this.document.querySelector(el).classList.toggle("scrollou", window.scrollY > 100);
-	});
+			const element = this.document.querySelector(el)
+			element && element.classList.toggle("scrollou", window.scrollY > 100);
+		});
 	}
-
-
-
-
-
-
 }
-
-
-
-
-

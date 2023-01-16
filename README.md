@@ -52,21 +52,20 @@ django-admin startproject --template https://github.com/TimeNovaData/boilerplate
 cd nome_do_projeto
 ```
 
-- Instale as dependências Python
-```shell
-pip install -r requirements-dev.txt
-```
-
 - Instale as dependências Node (você pode deixar esse comando rodando e dar continuidade nos demais em outro terminal)
 ```shell
 npm install
+```
+
+- Instale as dependências Python
+```shell
+pip install -r requirements-dev.txt
 ```
 
 - Crie as migrations extras, um banco de dados e colete os arquivos estáticos
 ```shell
 python manage.py makemigrations
 python manage.py migrate
-python manage.py collectstatic
 ```
 
 - Crie um super usuário
