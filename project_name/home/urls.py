@@ -9,6 +9,12 @@ home_router.register(
     basename="user",
 )
 
+home_router.register(
+    "profile",
+    viewsets.ProfileViewSet,
+    basename="profile",
+)
+
 urlpatterns = [
     path("home/api/", include(home_router.urls)),
     path("", views.home, name="home"),
