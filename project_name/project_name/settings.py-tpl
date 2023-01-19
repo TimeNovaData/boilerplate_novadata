@@ -21,6 +21,7 @@ INTERNAL_IPS = [
 ]
 
 INSTALLED_APPS = [
+    'django_app_novadata',
     'django.contrib.admindocs',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,7 +37,6 @@ INSTALLED_APPS = [
     'home',
     #
     # Libs
-    'django_app_novadata',
     'debug_toolbar',
     'django_browser_reload',
 	'drf_spectacular',
