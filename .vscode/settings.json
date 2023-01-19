@@ -4,7 +4,7 @@
     Python
     */
     "[python]": {
-        "editor.insertSpaces": false,
+        "editor.insertSpaces": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": true,
         },
