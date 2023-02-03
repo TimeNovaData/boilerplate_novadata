@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # Libs
     'debug_toolbar',
     'django_browser_reload',
+    'django_filters',
 	'drf_spectacular',
 	'drf_spectacular_sidecar',
     'import_export',
