@@ -3,7 +3,7 @@ from rest_framework.fields import empty
 
 
 class NovadataModelSerializer(serializers.ModelSerializer):
-    representation_fields = []
+    representation_fields: list = []
 
     def to_representation(self, instance):
         if instance and not isinstance(instance, list):
