@@ -21,6 +21,7 @@ INTERNAL_IPS = [
 ]
 
 INSTALLED_APPS = [
+    'django_app_novadata',
     'django.contrib.admindocs',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,15 +30,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-
+    #
     # Apps
+    'avatar',
     'front_assets',
     'home',
-
+    #
     # Libs
-    'django_app_novadata',
     'debug_toolbar',
     'django_browser_reload',
+    'django_filters',
 	'drf_spectacular',
 	'drf_spectacular_sidecar',
     'import_export',
@@ -54,13 +56,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    "home.middlewares.ModelAndAppNameMiddleware",
+    'home.middlewares.ModelAndAppNameMiddleware',
 ]
 
-DEV = config("DEV", default=False, cast=bool)
+DEV = config('DEV', default=False, cast=bool)
 if DEV:
     MIDDLEWARE += [
-        "django_browser_reload.middleware.BrowserReloadMiddleware",
+        'django_browser_reload.middleware.BrowserReloadMiddleware',
         # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     ]
 

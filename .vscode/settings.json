@@ -1,0 +1,42 @@
+{
+    "editor.tabSize": 4,
+    /*
+    Python
+    */
+    "[python]": {
+        "editor.insertSpaces": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        "editor.formatOnSave": true,
+    },
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.languageServer": "Pylance",
+    "python.formatting.autopep8Args": [
+        "--indent-size=4",
+        "--max-line-length=79",
+    ],
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django",
+        "--errors-only",
+    ],
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=79",
+    ],
+    /*
+    HTML
+    */
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.insertSpaces": false,
+    },
+    "files.associations": {
+        ".env": "django-txt",
+        "*.html": "html"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+}
