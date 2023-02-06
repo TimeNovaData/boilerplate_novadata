@@ -21,6 +21,6 @@ class Profile(models.Model):
         return f"{self.usuario}"
 
     class Meta:
-        app_label = "core"
+        app_label = "home"
         verbose_name = "Profile"
         verbose_name_plural = "Profiles"
