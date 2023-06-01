@@ -1,4 +1,3 @@
-from .base_novadata_view import BaseNovadataView
 from .design_system import design_system
 from .errors import error_403, error_404, error_500
 from .home import home
@@ -11,7 +10,6 @@ errors_views = [
 ]
 
 __all__ = [
-    BaseNovadataView,
     home,
     design_system,
     svg_viewer,

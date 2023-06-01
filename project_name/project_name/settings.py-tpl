@@ -43,12 +43,16 @@ INSTALLED_APPS = [
     'home',
     #
     # Libs
+    'advanced_filters',
     'debug_toolbar',
+    'django_admin_listfilter_dropdown',
     'django_browser_reload',
+    'django_object_actions',
     'django_filters',
 	'drf_spectacular',
 	'drf_spectacular_sidecar',
     'import_export',
+    'novadata_utils',
     'rest_framework',
     'widget_tweaks',
 ]
