@@ -5,9 +5,7 @@ from rest_framework.response import Response
 
 
 class NovadataModelViewSet(viewsets.ModelViewSet):
-    permission_classes = [
-        IsAuthenticated,
-    ]
+    permission_classes = [IsAuthenticated]
 
     filter_backends = [
         filters.SearchFilter,
@@ -31,7 +29,11 @@ class NovadataModelViewSet(viewsets.ModelViewSet):
         for fk_field in self.get_fk_fields():
             field_name = fk_field[0]
             try:
-                data[field_name] = data[field_name]["id"]
+                if isinstance(data[field_name], dict):
+                    data[field_name] = data[field_name].get(
+                        "id",
+                        None,
+                    )
             except KeyError:
                 print(f"Não passou {field_name}")
 
@@ -72,7 +74,9 @@ class NovadataModelViewSet(viewsets.ModelViewSet):
                 model = field[1]
                 obj_data = obj_datas[field_name]
                 if obj_data:
-                    fk_instance = model.objects.get(pk=obj_data["id"])
+                    fk_instance = model.objects.get(
+                        pk=obj_data.get("id", None)
+                    )
                     setattr(serializer.instance, field_name, fk_instance)
             except model.DoesNotExist:
                 print(f"Não passou {field_name}")
