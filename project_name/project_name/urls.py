@@ -18,6 +18,7 @@ urlpatterns = [
     path("", include("home.urls")),
     path("", include("django_app_novadata.urls")),
     path("avatar/", include("avatar.urls")),
+    path("advanced_filters/", include("advanced_filters.urls")),
     #
     path("api/", include(main_router.urls)),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
