@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from home.serializers import UserSerializer
-
-from .novadata_model_viewset import NovadataModelViewSet
+from novadata_utils.viewsets import NovadataModelViewSet
 
 
 class UserViewSet(NovadataModelViewSet):

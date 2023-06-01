@@ -1,7 +1,6 @@
 from home.models import Profile
 from home.serializers import ProfileSerializer
-
-from .novadata_model_viewset import NovadataModelViewSet
+from novadata_utils.viewsets import NovadataModelViewSet
 
 
 class ProfileViewSet(NovadataModelViewSet):
