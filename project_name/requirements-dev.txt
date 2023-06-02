@@ -12,6 +12,7 @@ django-import-export
 django-widget-tweaks
 django_debug_toolbar
 djangorestframework
+djangorestframework-simplejwt
 docutils
 drf-spectacular
 drf-spectacular-sidecar
